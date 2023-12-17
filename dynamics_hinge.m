@@ -10,7 +10,7 @@ function [dZ, Zp, Zs, C] = dynamics_hinge(t,Z,setup)
 %   \ddot{x_c}  = 0         ;  \ddot{y_c}  = \ddot{y}_s
 %   Here, the contact forces $F_x , F_y$ are given by the following equations 
 %   F_x =m\ddot{x}_p 
-%   F_y =m(\ddot{y}_p-\ddot{y}_s +g)
+%   F_y =m(\ddot{y}_p +g)
  
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 %                           Unpack Z                                      %
@@ -75,8 +75,7 @@ dZ   = [ dxc dyc dth ddxc ddyc ddth]';
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
  
 C(1,:) = m.*ddxp;                                                           % F_x= m \ddotx
-C(2,:) = m.*(ddyp + g);                                                     %N=m(\ddot y +g)
-
+C(2,:) = m.*(ddyp + g);                                                     %N=m(\ddot y +g )
 
 
 end
