@@ -1,4 +1,4 @@
-function [dZ,Zp,Zs, C] = dynamics_flight(t,Z,setup)
+function [dZ,Zc,Zs, C] = dynamics_flight(t,Zp,setup)
 %   State vector z = [x,y,theta,xdot,ydot,thetadot]'
 
 
@@ -20,12 +20,19 @@ theta_0 = setup.p.theta_0;
 %                           Unpack Z                                      %
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 
-xc      = Z(1,:);
-yc      = Z(2,:);
-th      = Z(3,:);
-dxc     = Z(4,:);
-dyc     = Z(5,:);
-dth     = Z(6,:);%-K*(th-theta_0)/gamma;
+%xc      = Z(1,:);
+%yc      = Z(2,:);
+
+xp      = Zp(1,:);
+yp      = Zp(2,:);
+
+th      = Zp(3,:);
+%dxc     = Z(4,:);
+%dyc     = Z(5,:);
+dxp     = Zp(4,:);
+dyp     = Zp(5,:);
+
+dth     = Zp(6,:);%-K*(th-theta_0)/gamma;
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 %                          Table (s)                                      %
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
@@ -37,22 +44,27 @@ dth     = Z(6,:);%-K*(th-theta_0)/gamma;
 %                          Tip (P)                                        %
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 
-xp      =  xc+L*sin(th);
-yp      =  yc+L*cos(th);
-ddyp    = -g;
-dxp     = dxc + L*dth.*cos(th);
+ddxp   =   0;
+ddyp   = - g;
+ddth   =  -K*(dth)/gamma;
+
+
+%dxp     = dxc + L*dth.*cos(th);
 %disp(['dxc =  ' num2str(dxc) '   dth = ' num2str(dth) '   th =  ' num2str(th)])
-dyp     = dyc - L*dth.*sin(th);
-Zp     = [xp ; yp ;th ;  dxp; dyp; dth];
+%dyp     = dyc - L*dth.*sin(th);
+%Zp     = [xp ; yp ;th ;  dxp; dyp; dth];
 
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 %                          Base (C)                                       %
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
-
+xc=xp-L*sin(th);
+dxc=dxp-L.*dth.*cos(th);
+yc=yp-L*cos(th);
+dyc=dyp+L.*dth.*sin(th);
+Zc     =[xc;yc;th;dxc;dyc;dth];
 ddxc =  0; 
 ddyc = -g;
-ddth =  -K*(dth)/gamma;
-dZ   = [ dxc dyc dth ddxc ddyc ddth]';
+dZ   = [ dxp dyp dth ddxp ddyp ddth]';
 
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 %                           Contact Forces                                %
