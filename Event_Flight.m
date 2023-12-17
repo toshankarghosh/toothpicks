@@ -1,6 +1,6 @@
 function [value,isterminal,direction] = Event_Flight(t,Zp,setup)
 
-[dZ,Zc, Zs, C]  = dynamics_flight2(t,Zp,setup);
+[dZ,Zc, Zs, C]  = dynamics_flight(t,Zp,setup);
 
 omega = setup.p.omega;
 A     = setup.p.A;
