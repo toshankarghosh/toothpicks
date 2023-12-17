@@ -1,4 +1,4 @@
-%clear all
+
 clearvars -except D
 %close all
 % latex     % run every time once after openning matlab
