@@ -24,7 +24,7 @@ if sum(val < 0) == 0 && sum(isnan(val)) == 0
 end
 
 %Check flight
-IC = [setup.IC.xc; setup.IC.yc; setup.IC.th; ...
+IC = [setup.IC.xp; setup.IC.yp; setup.IC.th; ...
     setup.IC.dxc; setup.IC.dyc; setup.IC.dth];
 
 
