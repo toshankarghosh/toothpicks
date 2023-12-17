@@ -1,6 +1,6 @@
-function [value,isterminal,direction] = Event_Flight(t,Z,setup)
+function [value,isterminal,direction] = Event_Flight(t,Zp,setup)
 
-[dZ, Zp, Zs, contacts] = dynamics_flight(t,Z,setup);
+[dZ,Zc, Zs, C]  = dynamics_flight2(t,Zp,setup);
 
 omega = setup.p.omega;
 A     = setup.p.A;
@@ -8,13 +8,12 @@ L     = setup.p.l;
 
 ys=A*cos(omega*t); % position of the table 
 
-th  = Z(3,:);
-y1  = Z(2,:);                                                                % position of the bottom end of the stick
-y2  = y1 + L*cos(th);                                                        % position of the top end of the stick
-
+th  = Zp(3,:);
+y2  = Zp(2,:);
+y1=y2-L*cos(th);
 % note here in the flight mode theta = theta_0
-hc  = y1-ys;                                                                % distance of the bottom end of the stick from the table
-
+hc  = y1-ys+1e-9   ;                                                           % distance of the bottom end of the stick from the table
+%disp([y1 y2])
 
 
 
@@ -30,6 +29,5 @@ value(2,:)  = hc;
 
 isterminal  = true(size(value));
 direction   = -ones(size(value));
-
 
 end
