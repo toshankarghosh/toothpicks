@@ -34,6 +34,7 @@ p.gamma         = 2*p.l*sqrt(p.k*p.m)*p.gamma_factor;% damping
 %p.mu            = .4; % Friction coefficient
 p.mu            = .1; % Friction coefficient
 p.theta_0       = 25 *(pi/180);
+p.theta_ic      = p.theta_0;
 
 disp([' Damping time in flight                      = ' num2str(p.gamma / p.k) ]);
 disp([' Inverse of  forcing                         = ' num2str(1/p.omega) ]);
