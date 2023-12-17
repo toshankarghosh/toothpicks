@@ -26,13 +26,13 @@ IC = [ setup.IC.xp;  setup.IC.yp;  setup.IC.th;...
 %                           ODE45                                         %
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
  
-eventFunc       = @(t,z)Event_Flight2(t,z,setup);
+eventFunc       = @(t,z)Event_Flight(t,z,setup);
 options         = odeset(...
                         'RelTol',setup.tol,...
                         'AbsTol',setup.tol,...
                         'Vectorized','on',...
                         'Events',eventFunc,'refine',setup.refine);
-userfun         = @(t,z)dynamics_flight2(t,z,setup);
+userfun         = @(t,z)dynamics_flight(t,z,setup);
 sol             = ode45(userfun,Tspan,IC,options);                         %Run ode45 until termination
 
 
@@ -45,7 +45,7 @@ tspan           = [sol.x(1),sol.x(end)];
 nTime            =   setup.dataFreq;
 t               = linspace(tspan(1),tspan(2),nTime);                       % create a time array 
 Zp               = deval(sol,t);                                            % dval evaluates the solution sol of a differential equation problem at the points contained in t.
-[dZ,Zc, Zs, C]  = dynamics_flight2(t,Zp,setup);
+[dZ,Zc, Zs, C]  = dynamics_flight(t,Zp,setup);
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 %                        Formatting                                       %
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
