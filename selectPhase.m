@@ -25,7 +25,7 @@ end
 
 %Check flight
 IC = [setup.IC.xp; setup.IC.yp; setup.IC.th; ...
-    setup.IC.dxc; setup.IC.dyc; setup.IC.dth];
+    setup.IC.dxp; setup.IC.dyp; setup.IC.dth];
 
 
 eventFunc = @(t, z)Event_Flight(t, z, setup);
