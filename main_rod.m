@@ -74,27 +74,28 @@ if restart_flag == 1
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 else
 
-%     tstart        = 0.48673;
-% tfinal        = 0.4873;
-% setup.IC.xc   = -0.12342;
-% setup.IC.yc   = -3.8684e-16;
-% setup.IC.th   = 0.74951;
-% setup.IC.dxc  = -1.2225;
-% setup.IC.dyc  = 0;
-% setup.IC.dth  = 2.703;
-
-    tstart          = 0.0;
-    tfinal          = 2.0;%2;%97; % 0.224; % We'll simulate this many seconds
-    
+tstart          = 0.0;
+    tfinal          = 15;
     
     setup.IC.xc     = 0.0;
-    setup.IC.yc     = 0.000 + p.A * cos(p.omega*tstart); %  the plate moves as a cos function
-    setup.IC.th     = p.theta_0;
+    setup.IC.yc     = 0.000 + p.A * cos(p.omega*tstart); 
+    setup.IC.th     = p.theta_ic;
     
     setup.IC.dxc    = 0;
     setup.IC.dyc    = 0;
     setup.IC.dth    = 0;
-end
+
+    setup.IC.xp      =  setup.IC.xc+p.l*sin(setup.IC.th);
+    setup.IC.yp      =  setup.IC.yc+p.l*cos(setup.IC.th);
+   
+
+    setup.IC.yc     = 0.000 + p.A * cos(p.omega*tstart); 
+    setup.IC.th     = p.theta_0;
+
+    setup.IC.dxp    = 0;
+    setup.IC.dyp    = setup.IC.yc;
+    setup.IC.dth    = 0;
+    end
 
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 %                           Parameters for ODE                            %
