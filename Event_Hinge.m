@@ -1,4 +1,5 @@
 %% Determines the exit condition for the hinge phase
+%% Checked by ODE45 to see if an event has occurred and what to do.
 function [value,isterminal,direction] = Event_Hinge(t,Z,setup)
 
 [dZ, Zp, Zs, contacts] = dynamics_hinge(t,Z,setup);
