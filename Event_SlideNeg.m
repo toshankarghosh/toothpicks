@@ -1,4 +1,5 @@
 %% Determines the exit condition for the slide Neg phase
+%% Checked by ODE45 to see if an event has occurred and what to do.
 function [value,isterminal,direction] = Event_SlideNeg(t,Z,setup)
 L       = setup.p.l;
 K       = setup.p.k;
