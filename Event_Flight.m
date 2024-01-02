@@ -1,3 +1,5 @@
+%% Determines the exit condition for the flight phase
+
 function [value,isterminal,direction] = Event_Flight(t,Zp,setup)
 
 [dZ,Zc, Zs, C]  = dynamics_flight(t,Zp,setup);
