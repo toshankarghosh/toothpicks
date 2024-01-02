@@ -11,6 +11,7 @@ function plotData_phase_paper(D, D1, setup)
 
  % Parameters
 
+ 
  L       = setup.p.l;
 
  % Assign plot colors to each phase
@@ -27,7 +28,7 @@ nPhase              = length(D1.raw);                                      % Tot
 % The  plots are arranged in a  [rows , columns] tabular form
 rows                = 2; 
 columns             = 2;
-FS  = 24;
+FS  = 14;
 
 
  fig_states = figure(1);
@@ -151,12 +152,11 @@ for i = 1:nPhase
                               'color', colr,'LineWidth', LW);
        ylabel('$\theta$ (rad)','interpreter', 'latex')
        xlabel('Time (s)','interpreter', 'latex')
-      %  set(ax1,'xticklabel',[])
+       xlim([min(D.data.time) max(D.data.time)]) ;
+       box on
+       grid on
 
-        box on
-        grid on
-
-            dottedLine(Jumps, axis);
+     %       dottedLine(Jumps, axis);
             set(gca,"FontSize",FS)
            
 
@@ -165,7 +165,7 @@ for i = 1:nPhase
 
 %
 
-        ax3 =   subplot(rows, columns, 2); hold on;
+        ax2 =   subplot(rows, columns, 2); hold on;
 
         
         
@@ -177,14 +177,14 @@ for i = 1:nPhase
             h1.MarkerSize = sz/2;
 
 
-            ylabel('$x_c$ (m)')
-            xlabel('Time (s)')
-            %set(ax3,'xticklabel',[])
+            ylabel('$x_c$ (m)','interpreter','latex')
+            xlabel('Time (s)','interpreter','latex')
+            xlim([min(D.data.time) max(D.data.time)]) ;
 
             box on
             grid on
 
-            dottedLine(Jumps, axis);
+            %dottedLine(Jumps, axis);
             set(gca,"FontSize",FS)
 
             
@@ -194,66 +194,46 @@ for i = 1:nPhase
 %                           plot 3 :(t,ys )                               %  
 
 
-        ax4 =   subplot(rows, columns, 3); hold on
-        
+        ax3 =   subplot(rows, columns, 3); hold on
        
-            
 
-%         h3      =   plot(t_phase, ys_phase,':',...
-%                             'color', colr,'LineWidth', LW);
+        h1      =   plot(t_phase, yc_phase,...
+                            'color', colr,'LineWidth', LW);
+        xlim([min(D.data.time) max(D.data.time)]) ;
 
-        h2  = patch([t_phase nan],[ys_phase nan],'w');
-        h2.LineWidth =2;
-        h2.LineStyle =':';
-        h2.EdgeColor = cl;
-        h2.EdgeAlpha = 0.5;
-        h2.FaceColor = cl;
-        h2.FaceAlpha = 0.5
-
-          h1      =   plot(t_phase, yc_phase,...
-                            'color', colr,'LineWidth', LW);         
-       ylabel('$y_s$, $y_c$ (m)')
-       xlabel('Time (s)')
+       ylabel('$y_c$ (m)','interpreter','latex')
+       xlabel('Time (s)','interpreter','latex')
        box on
        grid on
 
-       dottedLine(Jumps, axis);
+      % dottedLine(Jumps, axis);
        set(gca,"FontSize",FS)
 
-
-linkaxes([ax1, ax3, ax4],'x');
+linkaxes([ax1, ax2, ax3],'x');
 
             
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 %                           plot 4 :(t,dxc )                              %
 
-   ax5 =   subplot(rows, columns, 4); hold on
-
+   ax4 =   subplot(rows, columns, 4); hold on
   
-%   h2=plot(xc_phase, ys_phase,'-', 'color', [0 0 0],'LineWidth', LW);
-
-   h2  = patch([xc_phase nan],[ys_phase nan],'w');
-   h2.LineWidth =2;
-   h2.LineStyle =':';
-   h2.EdgeColor = cl;
-   h2.EdgeAlpha = 0.5;
-   h2.FaceColor = cl;
-   h2.FaceAlpha = 0.5
-
    
     h1=plot(xc_phase, yc_phase, 'color', colr,'LineWidth', LW);
 
 
    box on
-%  axis equal 
-
-   ylabel('$y_s$, $y_c$ (m)')
-   xlabel('$x_c$ (m)')
+   axis equal 
+   ylabel(' $y_c$ (m)','interpreter','latex')
+   xlabel('$x_c$ (m)','interpreter','latex')
    
 
    set(gca,"FontSize",FS)
 
 end
+
+
+
+
 
 for i=1:4
     subplot(rows, columns,i)
@@ -268,50 +248,29 @@ for i = 1: 3
 subplot(rows, columns,i)
 set(gca,"FontSize",FS)
 %xlim([0.25 .5])
-xlim([1.5 2])
+%xlim([1.5 2])
 grid off
 end
 
 
 
 subplot(rows, columns,1)
-ylim([setup.p.theta_0 1])
 
-%ylim([0.436 0.442])
-%ylim([0.436 0.46])
-%ylim([0.436 0.46])
-%ylim([0.436 0.438])
+    % ylim([setup.p.theta_0 1])
+
 
 subplot(rows, columns,2)
-ylim([0.0 1])
-%ylim([0.01 .02])
+    % ylim([0.0 1])
 
 
 subplot(rows, columns,3)
-ylim([-5e-3 15e-3])
-%ylim([-5e-3 5e-3])
-%ylim([-0.3e-3 0.3e-3])
-
+    % ylim([-5e-3 15e-3])
 
 subplot(rows, columns,4)
-% xlim([5 15])
-% ylim([-5e-3 15e-3])
-xlim([0 .075])
-ylim([-5e-3 5e-3])
-%xlim([0.012 .015])
-%ylim([-0.0005 0.0005])
 
-% xlim([1.75 2.25])
-% ylim([-0.001 0.001])
+    % xlim([0 .075])
+    % ylim([-5e-3 5e-3])
 
-% xlim([1.75 2.25])
-% ylim([-0.001 0.001])
-
-% xlim([0.004 0.006])
-% ylim([0.0 0.0003])
-
-%xlim([0 0.004])
-%axis equal
 set(gca,"FontSize",FS)
 
 
@@ -325,7 +284,7 @@ s=strcat(s0,', \, \,',s1,', \, \,  ',s2,', \, \, ',s3,', \, \,',s4)
 
 ch_title=strcat(s)
 sgt=sgtitle(ch_title,'interpreter','latex')
-sgt.FontSize = 35;
+sgt.FontSize = 15;
 
 
 %%%% SUB FUNCTIONS %%%%
@@ -333,11 +292,10 @@ sgt.FontSize = 35;
 
 
 function dottedLine(time, AXIS)
-%cl1= [0.7 0.7 0.7];
 cl1  = [0.4940 0.1840 0.5560];
 for i = 1:length(time)
     %Plots a dotted line between phases
-    %p1=plot(time(i)*[1; 1], [AXIS(3); AXIS(4)], '--k', 'LineWidth', .2);
+
     p1 =patch(time(i)*[1; 1], [AXIS(3); AXIS(4)], 'w');
 
     p1.EdgeColor = cl1;
@@ -345,7 +303,7 @@ for i = 1:length(time)
     p1.FaceColor = cl1;
     p1.FaceAlpha = 0.01;
 
-    p1.LineWidth = .1;
+    p1.LineWidth = .01;
     p1.LineStyle ='-';
     
     
