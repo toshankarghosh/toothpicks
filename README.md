@@ -55,7 +55,7 @@ The  file <main_rod.m> is the main file.
 
 * <simulate_flight.m> : This function simulates the flight phase of the dynamics 
 	* <dynamics_flight.m> : sets up the equations of motion for the flight phase for the ODE45 solver 
-  	* <Event_Flight.m>	
+  	* <Event_Flight.m> : Determines the exit condition for the flight phase	
 	* <Table.m>	
 	
    
@@ -64,7 +64,7 @@ The  file <main_rod.m> is the main file.
 
 * <simulate_hinge.m> : This function simulates the hinge phase of the dynamics
 	* <dynamics_hinge.m> : sets up the equations of motion for the hinge phase for the ODE45 solver 
-  	* <Event_Hinge.m>	
+  	* <Event_Hinge.m>    : Determines the exit condition for the hinge phase		
 	* <Table.m>
 	
 	
@@ -72,14 +72,17 @@ The  file <main_rod.m> is the main file.
 	
 * <simulate_slideNeg.m> :This function simulates the slide left phase of the dynamics
 	* <dynamics_slideNeg.m>	:  sets up the equations of motion for the slide left phase for the ODE45 solver
-  	* <Event_SlideNeg.m>
+  	* <Event_SlideNeg.m>    : Determines the exit condition for the slide left phase	
 	* <Table.m>
 	
 	
 	
 * <simulate_slidePos.m>: This function simulates the slide right phase of the dynamics
 	* <dynamics_slidePos.m>	:  sets up the equations of motion for the slide right phase for the ODE45 solver
-	* <Event_SlidePos.m>	
+	* <Event_SlidePos.m>	: Determines the exit condition for the slide right phase	
 	* <Table.m>
+   
+ * <fsm.m> This function handles switching between the four  phases.
+ * <plotData_phase_paper> : Plots the data
 	
 
