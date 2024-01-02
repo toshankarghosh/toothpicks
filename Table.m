@@ -1,3 +1,5 @@
+% simulates the  oscillatory motion of the table
+
 function[ys dys ddys]= Table(t,setup)
 
 omega = setup.p.omega;
