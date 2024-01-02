@@ -3,12 +3,13 @@ function [dZ,Zp,Zs, C] =  dynamics_slidePos(t,Z,setup)
 
 
 
-% In the sliding-right mode the horizontal velocity v_x of the point C is positive and y_c(t)=y_s(t). 
-% F_x           = -\mu F_y, 
-%	F_z           =  \frac{k(\theta-\theta_0) +\gamma \dot{\theta}}{L(\mu \cos\theta + \sin\theta)}
-%\ddot{z}_c     =  \ddot{z}_s 
-%\ddot{\theta}  =  \frac{1}{\sin \theta}\left( \frac{\ddot{z}_c-\ddot{z}_p}{L} -\dot{\theta}^2\cos\theta \right) 
-%\ddot{x}_{c}   = -\mu F_z/m -L(- \dot{\theta}^2 \sin\theta + \ddot{\theta} \cos \theta)
+%%  sets up the equations of motion for the slidePos phase for the ODE45 solver called from the <simulate_slidePos.m> function
+%% In the sliding-right mode the horizontal velocity v_x of the point C is positive and y_c(t)=y_s(t). 
+%% F_x           = -\mu F_y, 
+%%	F_z           =  \frac{k(\theta-\theta_0) +\gamma \dot{\theta}}{L(\mu \cos\theta + \sin\theta)}
+%%\ddot{z}_c     =  \ddot{z}_s 
+%%\ddot{\theta}  =  \frac{1}{\sin \theta}\left( \frac{\ddot{z}_c-\ddot{z}_p}{L} -\dot{\theta}^2\cos\theta \right) 
+%%\ddot{x}_{c}   = -\mu F_z/m -L(- \dot{\theta}^2 \sin\theta + \ddot{\theta} \cos \theta)
 
 
 
