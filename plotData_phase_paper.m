@@ -11,8 +11,7 @@ function plotData_phase_paper(D, D1, setup)
 
  % Parameters
 
- P       = D.p;
- L       = P.l;
+ L       = setup.p.l;
 
  % Assign plot colors to each phase
 
