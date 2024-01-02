@@ -1,17 +1,16 @@
 function [dZ, Zp, Zs, C] = dynamics_hinge(t,Z,setup)
-% sets up the equations of motion for the hinge phase for the ODE45 solver called from the <simulate_hinge.m> function
-%
-%  mL^2\ddot{\theta}=(g+\ddot{y}_s)mL\sin\theta - K(\theta-\theta_0)
-%   x_p        = L\sin \theta+x_c ; 
-%   \ddot{x}_p =L(- \dot{\theta}^2 \sin\theta + \ddot{\theta} \cos \theta)
-%   y_p        = L\cos \theta+y_s
-%   \ddot{y}_p= \ddot{y}_s + L( -\dot{\theta}^2 \cos\theta   - \ddot{\theta} \sin \theta ).
-%   note that in the pivot phase the bottom end is fixed 
-%   \dot{x_c}   = 0         ;  \dot{y_c}   = \dot{y}_s 
-%   \ddot{x_c}  = 0         ;  \ddot{y_c}  = \ddot{y}_s
-%   Here, the contact forces $F_x , F_y$ are given by the following equations 
-%   F_x =m\ddot{x}_p 
-%   F_y =m(\ddot{y}_p +g)
+
+%% sets up the equations of motion for the hinge phase for the ODE45 solver called from the <simulate_hinge.m> function
+%%  mL^2\ddot{\theta}=(g+\ddot{y}_s)mL\sin\theta - K(\theta-\theta_0)
+%%   x_p        = L\sin \theta+x_c ; 
+%%   \ddot{x}_p =L(- \dot{\theta}^2 \sin\theta + \ddot{\theta} \cos \theta)
+%%   y_p        = L\cos \theta+y_s
+%%   \ddot{y}_p= \ddot{y}_s + L( -\dot{\theta}^2 \cos\theta   - \ddot{\theta} \sin \theta ).
+%%   note that in the pivot phase the bottom end is fixed 
+%%   \dot{x_c}   = 0         ;  \dot{y_c}   = \dot{y}_s 
+%%   \ddot{x_c}  = 0         ;  \ddot{y_c}  = \ddot{y}_s
+%%   F_x =m\ddot{x}_p 
+%%   F_y =m(\ddot{y}_p +g)
  
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 %                           Unpack Z                                      %
