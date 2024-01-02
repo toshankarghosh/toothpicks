@@ -53,29 +53,29 @@ Depending on the constraints, one of the following four phases of motion are in 
 The  file <main_rod.m> is the main file.  
 
 
-simulate_flight.m
-	-Event_Flight.m	
-	-Table.m	
-	-dynamics_flight.m
+* <simulate_flight.m>
+	* <Event_Flight.m>	
+	* <Table.m>	
+	* <dynamics_flight.m>
 	
 
 
-simulate_hinge.m
-	-Event_Hinge.m	
-	-Table.m'
-	-dynamics_hinge.m
+* <simulate_hinge.m>
+	* <Event_Hinge.m>	
+	* <Table.m>
+	* <dynamics_hinge.m>
 	
 	
 	
-simulate_slideNeg.m
-	Event_SlideNeg.m
-	Table.m
-	dynamics_slideNeg.m	
+* <simulate_slideNeg.m>
+	* <Event_SlideNeg.m>
+	* <Table.m>
+	* <dynamics_slideNeg.m>	
 	
 	
-simulate_slidePos.m	
-	Event_SlidePos.m	
-	Table.m
-	dynamics_slidePos.m	
+* <simulate_slidePos.m>	
+	* <Event_SlidePos.m>	
+	* <Table.m>
+	* <dynamics_slidePos.m>	
 	
 
