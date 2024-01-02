@@ -1,3 +1,4 @@
+%% Determines the exit condition for the slide Neg phase
 function [value,isterminal,direction] = Event_SlideNeg(t,Z,setup)
 L       = setup.p.l;
 K       = setup.p.k;
