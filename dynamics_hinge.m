@@ -1,4 +1,5 @@
 function [dZ, Zp, Zs, C] = dynamics_hinge(t,Z,setup)
+% sets up the equations of motion for the hinge phase for the ODE45 solver called from the <simulate_hinge.m> function
 %
 %  mL^2\ddot{\theta}=(g+\ddot{y}_s)mL\sin\theta - K(\theta-\theta_0)
 %   x_p        = L\sin \theta+x_c ; 
