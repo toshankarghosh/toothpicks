@@ -1,5 +1,6 @@
 function [dZ,Zp,Zs, C] = dynamics_slideNeg(t,Z,setup)
-%   State vector z = [xc,yc,theta,xcdot,ycdot,thetadot]'
+%    sets up the equations of motion for the slideNeg phase for the ODE45 solver called from the <simulate_slideNeg.m> function
+%    State vector z = [xc,yc,theta,xcdot,ycdot,thetadot]'
 %   	F_y= \frac{K(\theta-\theta_0)}{L(-\mu \cos\theta  +   \sin\theta)}  \\
 %   	\ddot{x}_p=\mu F_y/m 
 %       \ddot{y}_p=  F_y/m-g
