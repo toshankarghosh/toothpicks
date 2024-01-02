@@ -53,7 +53,7 @@ Depending on the constraints, one of the following four phases of motion are in 
 The  file <main_rod.m> is the main file.  
 
 
-* <simulate_flight.m>
+* <simulate_flight.m> : This function simulates the flight phase of the dynamics 
 	* <dynamics_flight.m> : sets up the equations of motion for the flight phase for the ODE45 solver 
   	* <Event_Flight.m>	
 	* <Table.m>	
@@ -62,7 +62,7 @@ The  file <main_rod.m> is the main file.
 	
 
 
-* <simulate_hinge.m>
+* <simulate_hinge.m> : This function simulates the hinge phase of the dynamics
 	* <dynamics_hinge.m> : sets up the equations of motion for the hinge phase for the ODE45 solver 
   	* <Event_Hinge.m>	
 	* <Table.m>
@@ -70,14 +70,14 @@ The  file <main_rod.m> is the main file.
 	
 	
 	
-* <simulate_slideNeg.m>
+* <simulate_slideNeg.m> :This function simulates the slide left phase of the dynamics
 	* <dynamics_slideNeg.m>	:  sets up the equations of motion for the slide left phase for the ODE45 solver
   	* <Event_SlideNeg.m>
 	* <Table.m>
 	
 	
 	
-* <simulate_slidePos.m>	
+* <simulate_slidePos.m>: This function simulates the slide right phase of the dynamics
 	* <dynamics_slidePos.m>	:  sets up the equations of motion for the slide right phase for the ODE45 solver
 	* <Event_SlidePos.m>	
 	* <Table.m>
