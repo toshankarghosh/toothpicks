@@ -1,5 +1,10 @@
+%%  makes latex the default interpreter 
+%% This part of the code is sourced from 
+%% https://in.mathworks.com/matlabcentral/answers/183311-setting-default-interpreter-to-latex
+
+
+
 function latex()
-%  makes latex the default interpreter 
 
 list_factory = fieldnames(get(groot,'factory'));
      index_interpreter = find(contains(list_factory,'Interpreter'));
