@@ -1,3 +1,4 @@
+%% Determines the exit condition for the hinge phase
 function [value,isterminal,direction] = Event_Hinge(t,Z,setup)
 
 [dZ, Zp, Zs, contacts] = dynamics_hinge(t,Z,setup);
