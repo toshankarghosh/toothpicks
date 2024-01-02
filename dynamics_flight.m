@@ -1,4 +1,6 @@
 function [dZ,Zc,Zs, C] = dynamics_flight(t,Zp,setup)
+% sets up the equations of motion for the flight phase
+
 %   State vector z = [x,y,theta,xdot,ydot,thetadot]'
 
 
