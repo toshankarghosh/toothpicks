@@ -1,5 +1,5 @@
 %%  makes latex the default interpreter 
-%% This part of the code is sourced from 
+%% This part of the code is sourced from  the response of Max Bartholdt
 %% https://in.mathworks.com/matlabcentral/answers/183311-setting-default-interpreter-to-latex
 
 
