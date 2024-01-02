@@ -31,7 +31,8 @@ p.k             = 10;%p.omega^2 *p.m *p.l^2/f^2; %;15; %180 Stiffness of the tor
 p.gamma         = 0.01;%2*p.l*sqrt(p.k*p.m)*p.gamma_factor;% damping
 
 p.mu            = .4; % Friction coefficient
-p.theta_0       = 25 *(pi/180);
+p.theta_f_exp=.5;%expected equilibrium angle
+p.theta_0=p.theta_f_exp-p.m*p.g*p.l*sin(p.theta_f_exp)/p.k;%angle of the rod when no force is applied
 p.theta_ic      = p.theta_0;
 
 disp([' Damping time in flight                      = ' num2str(p.gamma / p.k) ]);
