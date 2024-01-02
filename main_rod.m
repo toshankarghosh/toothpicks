@@ -1,26 +1,24 @@
 
 clearvars -except D
 %close all
-% latex     % run every time once after openning matlab
+% latex     % run every time once after openning matlab : This script changes all interpreters from tex to latex. 
+
 
 
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
-%                           Parameters                                    %
+%                      Input     Parameters                               %
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 
-p.l             = .15; % Rod length
-p.m             = 1; % Rod mass
-p.I             = 0 * (p.m * p.l^2); % Rod inertia % I have set it to be zero for a mass less rod
-p.g             = 10; % Gravitational acceleration
-%p.R            = 0; % Restitution coefficient is set to zero % not used
+p.l             = 0.15;                     % Rod length
+p.m             = 1;                        % Rod mass
+p.I             = 0 * (p.m * p.l^2);        % Rod inertia ; I have set it to be zero for a mass less rod
+p.g             = 10;                       % Gravitational acceleration
+%p.R            = 0;                        % Restitution coefficient is set to zero % not used
+p.G             = 10;                       % Damping coefficient     
 
 
 
-p.G             = 10;    
-
-
-
-p.acc_support   = p.G*p.g;     
+p.acc_support   = p.G*p.g;                 % accelaration  of the  base plate 
 %p.omega         = 30*2*pi; %  frequency of the motion of the table
 p.omega         = 30*2*pi; %  frequency of the motion of the table
 p.A             = p.acc_support / (p.omega)^2; %0.013; % amplitude of the motion of the table
