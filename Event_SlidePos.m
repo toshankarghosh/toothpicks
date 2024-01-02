@@ -1,6 +1,8 @@
-function [value,isterminal,direction] = Event_SlidePos(t,Z,setup)
+%% Determines the exit condition for the slide Pos phase;
 % Checked by ODE45 to see if an event has occurred and what to do.
-% If the COM is really close to the ground, we say it's now sliding.
+
+function [value,isterminal,direction] = Event_SlidePos(t,Z,setup)
+
 
 
 [dZ, Zp, Zs, contacts] = dynamics_slidePos(t,Z,setup);
