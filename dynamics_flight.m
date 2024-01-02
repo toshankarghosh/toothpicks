@@ -1,11 +1,13 @@
 function [dZ,Zc,Zs, C] = dynamics_flight(t,Zp,setup)
-% sets up the equations of motion for the flight phase for the ODE45 solver called from the <simulate_flight.m> function
 
-%   State vector z = [x,y,theta,xdot,ydot,thetadot]'
-% In this phase the stick is not making a contact with the platform, % i.e., $h_c >0$ and hence both the contact forces 
-% $F_x$ and $F_z$ are set to zero. The equation of motion of the point P is 
-% \ddot{x}_p=0 and \ddot{z}_p=-g 
-%\dot{\theta}=-K(\theta-\theta_0)/\gamma;
+%% sets up the equations of motion for the flight phase for the ODE45 solver called from the <simulate_flight.m> function
+%% State vector z = [x,y,theta,xdot,ydot,thetadot]'
+%% In this phase the stick is not making a contact with the platform, % i.e., $h_c >0$ and hence both the contact forces 
+%% F_x = 0 
+%% F_y = 0  
+%% \ddot{x}_p=0 
+%% \ddot{z}_p=-g 
+%% \dot{\theta}=-K(\theta-\theta_0)/\gamma;
 
 
 
