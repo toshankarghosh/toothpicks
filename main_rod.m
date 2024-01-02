@@ -155,7 +155,6 @@ end
 %%%% Post processing and analysis %%%%
 
 [D.data, D.Jumps, D.JumpIdx] = stitchData(D1.raw);
-D.p = setup.p;
 
 for i = 1:length(D.phase)
     disp([D.phase{i}, '  ->  ', D.code{i}])
