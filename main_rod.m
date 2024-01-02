@@ -19,18 +19,18 @@ p.G             = 10;                       % Damping coefficient
 
 
 p.acc_support   = p.G*p.g;                 % accelaration  of the  base plate 
-%p.omega         = 30*2*pi; %  frequency of the motion of the table
+
 p.omega         = 30*2*pi; %  frequency of the motion of the table
-p.A             = p.acc_support / (p.omega)^2; %0.013; % amplitude of the motion of the table
+p.A             = p.acc_support / (p.omega)^2;  % amplitude of the motion of the table
 
 %f                = 1.5;  % f=2
 %f                 =2;  
-f                 =15% 
-p.k             = p.omega^2 *p.m *p.l^2/f^2; %;15; %180 Stiffness of the torsion spring
-p.gamma_factor  = .25; % comparison factor to critical damping
-p.gamma         = 2*p.l*sqrt(p.k*p.m)*p.gamma_factor;% damping
-%p.mu            = .4; % Friction coefficient
-p.mu            = .1; % Friction coefficient
+%f                 =15% 
+p.k             = 10;%p.omega^2 *p.m *p.l^2/f^2; %;15; %180 Stiffness of the torsion spring
+%p.gamma_factor  = .25; % comparison factor to critical damping
+p.gamma         = 0.01;%2*p.l*sqrt(p.k*p.m)*p.gamma_factor;% damping
+
+p.mu            = .4; % Friction coefficient
 p.theta_0       = 25 *(pi/180);
 p.theta_ic      = p.theta_0;
 
