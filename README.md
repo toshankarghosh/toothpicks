@@ -54,28 +54,32 @@ The  file <main_rod.m> is the main file.
 
 
 * <simulate_flight.m>
-	* <Event_Flight.m>	
+	* <dynamics_flight.m> : sets up the equations of motion for the flight phase for the ODE45 solver 
+  	* <Event_Flight.m>	
 	* <Table.m>	
-	* <dynamics_flight.m>
+	
+   
 	
 
 
 * <simulate_hinge.m>
-	* <Event_Hinge.m>	
+	* <dynamics_hinge.m> : sets up the equations of motion for the hinge phase for the ODE45 solver 
+  	* <Event_Hinge.m>	
 	* <Table.m>
-	* <dynamics_hinge.m>
+	
 	
 	
 	
 * <simulate_slideNeg.m>
-	* <Event_SlideNeg.m>
+	* <dynamics_slideNeg.m>	:  sets up the equations of motion for the slide left phase for the ODE45 solver
+  	* <Event_SlideNeg.m>
 	* <Table.m>
-	* <dynamics_slideNeg.m>	
+	
 	
 	
 * <simulate_slidePos.m>	
+	* <dynamics_slidePos.m>	:  sets up the equations of motion for the slide right phase for the ODE45 solver
 	* <Event_SlidePos.m>	
 	* <Table.m>
-	* <dynamics_slidePos.m>	
 	
 
