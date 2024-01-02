@@ -1,5 +1,5 @@
 function [dZ,Zc,Zs, C] = dynamics_flight(t,Zp,setup)
-% sets up the equations of motion for the flight phase
+% sets up the equations of motion for the flight phase for the ODE45 solver called from the <simulate_flight.m> function
 
 %   State vector z = [x,y,theta,xdot,ydot,thetadot]'
 
