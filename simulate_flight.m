@@ -41,7 +41,6 @@ sol             = ode45(userfun,Tspan,IC,options);                         %Run 
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 %Format for post processing
 tspan           = [sol.x(1),sol.x(end)];
-%nTime           = ceil(setup.dataFreq*diff(tspan));
 nTime            =   setup.dataFreq;
 t               = linspace(tspan(1),tspan(2),nTime);                       % create a time array 
 Zp               = deval(sol,t);                                            % dval evaluates the solution sol of a differential equation problem at the points contained in t.
