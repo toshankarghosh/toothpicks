@@ -47,6 +47,6 @@ direction   = -ones(size(value));
 value(1,:)  = th + pi/2; %'FALL_NEG';
 value(2,:)  = pi/2 - th; %'FALL_POS';
 value(3,:)  = -dxc;       %'STUCK'
-value(4,:)  = fy_num;%Fy;         % FLIGHT 
+value(4,:)  = fy_num;         % FLIGHT 
 value(5,:)  = delta_th;         % FLIGHT  this handle the theta =0 sigularity
 end
